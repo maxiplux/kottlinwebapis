@@ -38,6 +38,13 @@ compileTestKotlin {
 
 repositories {
     mavenCentral()
+
+    maven {
+        url 'http://repo.spring.io/milestone'
+    }
+    maven {
+        url 'http://repo.spring.io/libs-snapshot'
+    }
 }
 
 
@@ -51,7 +58,6 @@ dependencies {
     compile('org.springframework.data:spring-data-rest-hal-browser')
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-    compile("com.h2database:h2")
 
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('mysql:mysql-connector-java')
@@ -60,4 +66,18 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 
+
+
+    compile 'org.springframework.security:spring-security-config:5.0.7.RELEASE'
+
+
+
+    compile 'io.jsonwebtoken:jjwt-api:0.10.5'
+    runtime 'io.jsonwebtoken:jjwt-impl:0.10.5',
+            // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
+            //'org.bouncycastle:bcprov-jdk15on:1.60',
+            'io.jsonwebtoken:jjwt-jackson:0.10.5'
+    compile 'org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE'
+
+    compile 'org.springframework.boot:spring-boot-actuator:2.0.4.RELEASE'
 }
